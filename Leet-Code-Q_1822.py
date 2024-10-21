@@ -10,17 +10,20 @@ You are given an integer array nums. Let product be the product of all values in
 Return signFunc(product). 
 """
 
-nums = [-1,-2,3,-4,3,2,1]
+nums = [-1,-2,-3,-4,3,2,1]
 
-def signFunc(x):
-    for i in range(len(nums)):
-        x = x*nums[i]
+def signFunc(nums):
+    negative_count = 0
 
-    if x > 0:
-        print("1")
-    elif x < 0:
-        print("-1")
+    for num in nums:
+        if num == 0:
+            print(0)
+        elif num < 0:
+            negative_count += 1
+        
+    if (negative_count % 2 == 1):
+        print(-1)
     else:
-        print("0")
-
-signFunc(1)
+        print(1) 
+    
+signFunc(nums)
